@@ -34,6 +34,12 @@ ORDER BY `exams`.`date`, `exams`.`hour`;
 /************************************************************************/
 Contare quanti corsi di laurea ci sono per ogni dipartimento
 
+SELECT `departments`.`id` AS `department_id`, `departments`.`name` AS `department_name`,
+       COUNT(`courses`.`id`) AS `numero_corsi_di_laurea`
+FROM `departments`
+LEFT JOIN `courses` ON `departments`.`id` = `courses`.`degree_id`
+GROUP BY `departments`.`id`, `departments`.`name`
+ORDER BY `department_id`;
 
 
 /************************************************************************/
