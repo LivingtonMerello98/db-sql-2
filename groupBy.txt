@@ -22,6 +22,13 @@ ORDER BY `NumeroInsegnanti` DESC;
 /************************************************************************/
 Calcolare la media dei voti di ogni appello d'esame
 
+SELECT `exams`.`id` AS `exam_id`, `exams`.`date`, `exams`.`hour`, `exams`.`location`, `exams`.`address`,
+       AVG(`exam_student`.`vote`) AS `average_grade`
+FROM `exams`
+INNER JOIN `exam_student` ON `exams`.`id` = `exam_student`.`exam_id`
+GROUP BY `exams`.`id`, `exams`.`date`, `exams`.`hour`, `exams`.`location`, `exams`.`address`
+ORDER BY `exams`.`date`, `exams`.`hour`;
+
 
 
 /************************************************************************/
