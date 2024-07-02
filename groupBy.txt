@@ -12,6 +12,11 @@ ORDER BY AnnoIscrizione;
 /************************************************************************/
 Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 
+SELECT `office_address`, COUNT(`Id`) AS `NumeroInsegnanti`
+FROM `teachers`
+GROUP BY `office_address`
+ORDER BY `NumeroInsegnanti` DESC;
+
 
 
 /************************************************************************/
